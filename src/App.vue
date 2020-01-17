@@ -1,16 +1,18 @@
 <template>
   <div id="app">
-    <login />
+    <demo />
   </div>
 </template>
 
 <script>
-import Login from './views/login/login'
+// import Login from './views/login/login'
+import Demo from './views/demo/demo'
 
 export default {
   name: 'app',
   components: {
-    Login
+    // Login,
+    Demo
   }
 }
 </script>
