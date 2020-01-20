@@ -1,23 +1,21 @@
 const path = require('path')
-// html
-const HtmlWebpackPlugin = require('html-webpack-plugin')
-// css分离
-const ExtractTextPlugin = require('extract-text-webpack-plugin')
-// 清除文件
-const CleanWebpackPlugin = require('clean-webpack-plugin')
 
 module.exports = {
-  // 模式
-  mode: 'production',
-  // 入口文件
-  entry: {
-    'app': './src/app.js'
-  },
-  output: {
-    // 打包文件地址
-    path: path.resolve(__dirname, 'dist'),
-    // 打包后的文件名
-    filename: '[name].[chunkhash].js'
+  outputDir: path.resolve(__dirname, process.env.NODE_ENV === 'development' ? 'alpha' : 'dist'), // 运行时生成的生产环境构建文件的目录(默认''dist''，构建之前会被清除)
+  assetsDir: 'public', // 放置生成的静态资源(s、css、img、fonts)的(相对于 outputDir 的)目录(默认'')
+  runtimeCompiler: true, // 运行时版本是否需要编译\
+  productionSourceMap: false, // 是否在构建生产包时生成 sourceMap 文件，false将提高构建速度
+  indexPath: 'index.html', // 指定生成的 index.html 的输出路径(相对于 outputDir)也可以是一个绝对路径。
+  pages: {
+    // pages 里配置的路径和文件名在你的文档目录必须存在 否则启动服务会报错
+    index: {
+      // 除了 entry 之外都是可选的
+      entry: 'src/main.js', // page 的入口,每个“page”应该有一个对应的 JavaScript 入口文件
+      template: 'public/index.html', // 模板来源
+      filename: 'index.html', // 在 dist/index.html 的输出
+      title: 'Index Page', // 当使用 title 选项时,在 template 中使用：<title><%= htmlWebpackPlugin.options.title %></title>
+      chunks: ['chunk-vendors', 'chunk-common', 'index'] // 在这个页面中包含的块，默认情况下会包含,提取出来的通用 chunk 和 vendor chunk
+    }
   },
   css: {
     // sourceMap: true, //  方便调试样式。  会影响编译速度，平时要关闭
@@ -27,40 +25,21 @@ module.exports = {
       }
     }
   },
+  parallel: require('os').cpus().length > 1, // 构建时开启多进程处理babel编译
+  // webpack-dev-server 相关配置
   devServer: {
-    port: '8800', // 端口号
-    open: true // 自动启动浏览器
+    host: '0.0.0.0',
+    port: 8080,
+    https: false,
+    open: true,
+    hotOnly: false,
+    proxy: null, // 设置代理
+    before: app => {}
   },
-  // 配置保存自动修复eslint错误(在没有做任何配置时，此时，如果出现不符合eslint规则的代码，会出现以下1 error potentially fixable with the '--fix' option.报错:)
-  // chainWebpack: config => {
-  //   config.module
-  //     .rule('eslint')
-  //     .use('eslint-loader')
-  //     .loader('eslint-loader')
-  //     .tap(options => {
-  //       options.fix = true
-  //       return options
-  //     })
-  // },
-  lintOnSave: true, // 关闭eslint
-  outputDir: process.env.NODE_ENV === 'development' ? 'alpha' : 'dist',
-  // 插件
-  plugins: [
-    new HtmlWebpackPlugin({
-      // 标题
-      title: '学习 webpack',
-      // 模板
-      template: 'src/index.html',
-      // 压缩 去掉所有空格
-      minify: {
-        collapseWhitespace: true // false | true
-      },
-      // 添加hash
-      hash: true
-    }),
-    // css分离
-    new ExtractTextPlugin('style.css'),
-    // 删除文件 保留新文件
-    new CleanWebpackPlugin(['dist'])
-  ]
+  // PWA 插件相关配置
+  pwa: {},
+  // 第三方插件配置
+  pluginOptions: {
+    // ...
+  }
 }

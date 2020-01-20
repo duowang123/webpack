@@ -1,0 +1,318 @@
+@charset "UTF-8";
+* {
+  margin: 0;
+  padding: 0;
+  user-select: none;
+  -ms-user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-appearance: none;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: 16px;
+  font-weight: normal;
+  text-decoration: none;
+}
+
+hr {
+  height: 0;
+  overflow: visible;
+  -webkit-box-sizing: content-box;
+  box-sizing: content-box;
+}
+
+a {
+  text-decoration: none;
+  background-color: transparent;
+}
+
+a:focus,
+*:focus {
+  outline: none;
+}
+
+/* 未访问的链接 */
+a:link,
+a:visited,
+a:hover,
+a:active {
+  color: #3a3c4c;
+}
+
+/* 缩写标签格式化 */
+abbr[title] {
+  border-bottom: none;
+  text-decoration: underline;
+  -webkit-text-decoration: underline dotted;
+  text-decoration: underline dotted;
+}
+
+b,
+strong，i,
+ins,
+del,
+s,
+big,
+small,
+em {
+  font-size: 16px;
+  font-style: normal;
+  text-decoration: none;
+  font-weight: normal;
+}
+
+code,
+kbd,
+samp {
+  font-family: monospace, monospace;
+}
+
+sub,
+sup {
+  line-height: 0;
+  font-size: 12px;
+  position: relative;
+  vertical-align: baseline;
+}
+
+sub {
+  bottom: -.25em;
+}
+
+sup {
+  top: -.5em;
+}
+
+img {
+  display: block;
+  border-style: none;
+}
+
+button,
+input,
+optgroup,
+select,
+textarea {
+  font-family: inherit;
+}
+
+button,
+input {
+  outline: none;
+  display: block;
+  overflow: visible;
+}
+
+button,
+select {
+  text-transform: none;
+}
+
+button,
+[type='button'],
+[type='reset'],
+[type='submit'] {
+  -webkit-appearance: button;
+}
+
+button::-moz-focus-inner,
+[type='button']::-moz-focus-inner,
+[type='reset']::-moz-focus-inner,
+[type='submit']::-moz-focus-inner {
+  border-style: none;
+}
+
+button:-moz-focusring,
+[type='button']:-moz-focusring,
+[type='reset']:-moz-focusring,
+[type='submit']:-moz-focusring {
+  outline: 1px dotted ButtonText;
+}
+
+/* 自定义placeholder样式 */
+::-webkit-input-placeholder {
+  color: #3a3c4c;
+}
+
+:-moz-placeholder {
+  color: #3a3c4c;
+}
+
+::-moz-placeholder {
+  color: #3a3c4c;
+}
+
+:-ms-input-placeholder {
+  color: #3a3c4c;
+}
+
+textarea {
+  overflow: auto;
+}
+
+[type='number']::-webkit-inner-spin-button,
+[type='number']::-webkit-outer-spin-button {
+  height: auto;
+}
+
+[type='search'] {
+  outline-offset: -2px;
+  -webkit-appearance: textfield;
+}
+
+[type='search']::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+
+::-webkit-file-upload-button {
+  font: inherit;
+  -webkit-appearance: button;
+}
+
+dl,
+dt,
+dd,
+ol,
+ul,
+li {
+  list-style: none;
+}
+
+table {
+  border-spacing: 0;
+  border-collapse: collapse;
+}
+
+th {
+  text-align: inherit;
+}
+
+/* 鼠标样式 */
+.cp {
+  cursor: pointer;
+}
+
+.cm {
+  cursor: move;
+}
+
+/* 遮罩层 */
+.mask {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  background: rgba(0, 0, 0, 0.6);
+}
+
+/* display */
+summary {
+  display: list-item;
+}
+
+.hide,
+[hidden],
+template {
+  display: none;
+}
+
+.block,
+details,
+iframe {
+  display: block;
+}
+
+.inlineBlock,
+.fl,
+.fr {
+  display: inline-block;
+}
+
+/* 浮动 */
+.fl {
+  float: left;
+}
+
+.fr {
+  float: right;
+}
+
+/* 文字定位 */
+.al {
+  text-align: left;
+}
+
+.ac {
+  text-align: center;
+}
+
+.ar {
+  text-align: right;
+}
+
+/* 定位、居中 */
+.fixed {
+  position: fixed;
+}
+
+.relative {
+  position: relative;
+}
+
+.absolute {
+  position: absolute;
+}
+
+.horMid {
+  left: 50%;
+  transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  -webkit-transform: translateX(-50%);
+}
+
+.verMid {
+  top: 50%;
+  transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+}
+
+.marginMiddle {
+  margin: 0 auto;
+}
+
+.imgMid {
+  vertical-align: middle;
+}
+
+/* 清除浮动 */
+.clearfix {
+  *zoom: 1;
+}
+
+.clearfix::after {
+  clear: both;
+}
+
+.clearfix::before,
+.clearfix::after {
+  content: "";
+  display: table;
+}
+
+/* 强制不换行 */
+.nowrap {
+  white-space: nowrap;
+  word-break: break-all;
+}
+/*# sourceMappingURL=init.css.map */
