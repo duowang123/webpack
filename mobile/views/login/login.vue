@@ -30,7 +30,7 @@
         ></el-input>
       </el-form-item>
       <el-form-item>
-        <el-button type="primary" @click="submitForm('ruleForm')"
+        <el-button type="primary" @click="toast"
           >登陆</el-button
         >
       </el-form-item>
@@ -40,6 +40,7 @@
 
 <script>
 export default {
+  use: ['Toast'],
   data() {
     return {
       ruleForm: {

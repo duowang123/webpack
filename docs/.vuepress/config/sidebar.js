@@ -4,6 +4,7 @@ module.exports = {
     children: [
       '/list/sidebar/api/api文档.md',
       '/list/sidebar/html/html文档.md',
+      '/list/sidebar/eventBus/eventBus.md',
     ]
   }]
 }
