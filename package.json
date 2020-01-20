@@ -6,6 +6,7 @@
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build --mode production",
     "build:alpha": "vue-cli-service build --mode development",
+    "build:mobile": "vue-cli-service build --mode mobile",
     "lint": "eslint --fix --ext .js,.vue src",
     "docs:dev": "vuepress dev docs",
     "docs:build": "vuepress build docs"
