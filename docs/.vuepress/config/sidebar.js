@@ -5,6 +5,7 @@ module.exports = {
       '/list/sidebar/api/api文档.md',
       '/list/sidebar/html/html文档.md',
       '/list/sidebar/eventBus/eventBus.md',
+      '/list/sidebar/axios/axios.md',
     ]
   }]
 }
